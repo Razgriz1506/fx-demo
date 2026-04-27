@@ -1,31 +1,27 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateFxDto } from './create-fx.dto';
+import { Injectable } from '@nestjs/common';
+import { CreateFxRequestDto } from './dto/create-fx-request.dto';
 
 @Injectable()
 export class FxService {
-  private requests: any[] = [];
-  private counter = 1;
+  private requests = [];
 
-  findAll() {
-    return this.requests.sort(
-      (a, b) => b.created_at.getTime() - a.created_at.getTime(),
-    );
-  }
-
-  findOne(id: string) {
-    const req = this.requests.find((r) => r.id === id);
-    if (!req) throw new NotFoundException('Request not found');
-    return req;
-  }
-
-  create(dto: CreateFxDto) {
+  create(dto: CreateFxRequestDto) {
     const req = {
-      id: String(this.counter++),
-      reference_no: FX-${Date.now()},
+      id: Date.now().toString(),
+      reference_no: 'FX-' + Math.floor(Math.random() * 100000),
       ...dto,
       created_at: new Date(),
     };
+
     this.requests.push(req);
     return req;
+  }
+
+  findAll() {
+    return this.requests;
+  }
+
+  findOne(id: string) {
+    return this.requests.find((r) => r.id === id);
   }
 }
