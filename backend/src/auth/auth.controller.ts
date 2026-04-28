@@ -12,8 +12,4 @@ export class AuthController {
     return this.authService.login(user);
   }
 
-  @Post("seed-demo")
-  async seedDemo() {
-    return this.authService.seedDemoUser();
-  }
 }
