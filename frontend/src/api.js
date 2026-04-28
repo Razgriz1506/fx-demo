@@ -12,3 +12,5 @@ export const getFxRequest = (id) =>
 
 export const createFxRequest = (payload) =>
   api.post("/fx-requests", payload).then((r) => r.data);
+export const login = (email, password) =>
+  api.post("/api/auth/login", { email, password }).then((r) => r.data);
