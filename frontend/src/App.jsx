@@ -23,6 +23,7 @@ export default function App() {
   }
 
   return (
+    <div className="text-red-500 text-2xl font-bold">Tailwind is working</div>
     <div style={{ padding: 20, fontFamily: "sans-serif" }}>
       <header style={{ marginBottom: 20 }}>
         <h2>FX Demo</h2>
