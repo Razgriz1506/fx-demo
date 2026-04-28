@@ -23,26 +23,32 @@ export default function App() {
   }
 
   return (
-    <div className="text-red-500 text-2xl font-bold">Tailwind is working</div>
-    <div style={{ padding: 20, fontFamily: "sans-serif" }}>
-      <header style={{ marginBottom: 20 }}>
-        <h2>FX Demo</h2>
-        <div>
-          Logged in as {user.name} ({user.email}){" "}
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-        <nav style={{ marginTop: 10 }}>
-          <Link to="/fx">FX Requests</Link>{" "}
-          | <Link to="/fx/new">New FX Request</Link>
-        </nav>
-      </header>
+    <>
+      {/* Tailwind test */}
+      <div className="text-red-500 text-2xl font-bold mb-4">
+        Tailwind is working
+      </div>
 
-      <Routes>
-        <Route path="/fx" element={<FxList />} />
-        <Route path="/fx/new" element={<FxCreate />} />
-        <Route path="/fx/:id" element={<FxDetails />} />
-        <Route path="*" element={<FxList />} />
-      </Routes>
-    </div>
+      <div style={{ padding: 20, fontFamily: "sans-serif" }}>
+        <header style={{ marginBottom: 20 }}>
+          <h2>FX Demo</h2>
+          <div>
+            Logged in as {user.name} ({user.email}){" "}
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+          <nav style={{ marginTop: 10 }}>
+            <Link to="/fx">FX Requests</Link> |{" "}
+            <Link to="/fx/new">New FX Request</Link>
+          </nav>
+        </header>
+
+        <Routes>
+          <Route path="/fx" element={<FxList />} />
+          <Route path="/fx/new" element={<FxCreate />} />
+          <Route path="/fx/:id" element={<FxDetails />} />
+          <Route path="*" element={<FxList />} />
+        </Routes>
+      </div>
+    </>
   );
 }
