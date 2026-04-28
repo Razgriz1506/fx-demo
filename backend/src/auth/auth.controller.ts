@@ -11,5 +11,4 @@ export class AuthController {
     const user = await this.authService.validateUser(dto);
     return this.authService.login(user);
   }
-
 }
