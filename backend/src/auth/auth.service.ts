@@ -15,7 +15,9 @@ export class AuthService {
 
   constructor(private jwtService: JwtService) {}
 
-  async validateUser(email: string, password: string) {
+  async validateUser(dto: { email: string; password: string }) {
+  const { email, password } = dto;
+
     const user = this.users.find((u) => u.email === email);
     if (!user) throw new UnauthorizedException();
 
